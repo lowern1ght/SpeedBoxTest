@@ -18,7 +18,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      ...proxySettings
+      ...proxySettings,
+      "/swagger" : {
+        target: "localhost"
+      }
     },
     ...portSettings
   },
