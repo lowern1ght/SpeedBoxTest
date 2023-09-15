@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Application.Models;
+namespace Application.Models.Transportation;
 
-public class Transportation
+public class DeliveryRequest
 {
     [JsonPropertyName("version")] public string Version { get; set; } = "1.5";
     [JsonPropertyName("dateExecute")] public DateTime? DateExecute { get; set; } = DateTime.Now;
@@ -13,5 +13,6 @@ public class Transportation
     [JsonPropertyName("receiverCityId")] public long ReceiverCityId { get; set; }
     [JsonPropertyName("receiverCityPostCode")] public long ReceiverCityPostCode { get; set; }
     
-    public Dimensions Goods { get; init; }
+    [JsonPropertyName("goods")]
+    public Dimensions? Goods { get; init; }
 }

@@ -9,9 +9,9 @@ public class CityService : ICityService
     private readonly string _defaultCityUrl
         = "http://integration.cdek.ru";
     
-    public async Task<List<City>?> GetCityByFiasAsync(Guid fiasGuid)
+    public async Task<City?> GetCityByFiasAsync(Guid fiasGuid)
     {
-        using var client = new HttpClient()
+        using var client = new HttpClient
         {
             BaseAddress = new Uri(_defaultCityUrl)
         };
@@ -29,8 +29,7 @@ public class CityService : ICityService
             throw new ArgumentNullException(nameof(content));
         }
 
-        var obj = JsonSerializer.Deserialize<List<City>>(content);
-
-        return obj;
+        return JsonSerializer.Deserialize<List<City>>(content)?
+            .First();
     }
 }

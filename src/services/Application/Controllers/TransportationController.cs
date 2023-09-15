@@ -1,13 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Models.Transportation;
+using Application.Services;
+using Application.Services.Mediator;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers;
 
 [ApiController]
 [Route("/api/[controller]/[action]")]
 public class TransportationController : Controller
-{ 
-    public Task<IActionResult> Index()
+{
+    [HttpGet]
+    public async Task<int> ExploreDeliveryPriceAsync(
+        [FromServices] IDeliveryMediator<DeliveryModel, int> deliveryMediator, [FromQuery] DeliveryModel deliveryModel)
     {
-        throw new NotImplementedException();
+        return await deliveryMediator.HandleAsync(deliveryModel);
     }
 }

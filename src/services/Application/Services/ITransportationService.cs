@@ -1,6 +1,6 @@
 ﻿namespace Application.Services;
 
-public interface ITransportationService
+public interface ITransportationService<in TRequestModel, TResponseModel>
 {
-    
+    public Task<TResponseModel> GetTransportInfo(TRequestModel requestModel);
 }

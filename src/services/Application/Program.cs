@@ -1,10 +1,12 @@
-using System.Linq.Expressions;
 using Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders()
     .AddConsole();
+
+builder.Services.AddRouting(options 
+    => options.LowercaseUrls = true);
 
 builder.Services.AddControllers();
 
@@ -33,16 +35,8 @@ application.UseCors(policyBuilder =>
                  .AllowAnyOrigin();
 });
 
+application.UseRouting();
+
 application.MapDefaultControllerRoute();
 
-PP.Exec(() => true);
-
 application.Run();
-
-public static class PP
-{
-    public static void Exec(Func<bool> expression)
-    {
-        
-    }
-}
