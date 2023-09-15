@@ -27,25 +27,4 @@ public class City
 
     [JsonPropertyName("regionFiasGuid")]
     public string? RegionFiasGuid { get; set; }
-
-    [JsonPropertyName("subRegion")]
-    public string? SubRegion { get; set; }
-
-    [JsonPropertyName("latitude")]
-    public double? Latitude { get; set; }
-
-    [JsonPropertyName("longitude")]
-    public double? Longitude { get; set; }
-
-    [JsonPropertyName("kladr")]
-    public string? Kladr { get; set; }
-
-    [JsonPropertyName("fiasGuid")]
-    public string? FiasGuid { get; set; }
-
-    [JsonPropertyName("paymentLimit")]
-    public double? PaymentLimit { get; set; }
-
-    [JsonPropertyName("timezone")]
-    public string? Timezone { get; set; }
 }
